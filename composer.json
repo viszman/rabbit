@@ -1,5 +1,10 @@
 {
   "type": "project",
+  "name": "viszman/rabbit",
+  "keywords": [
+    "PHP",
+    "RabbitMQ"
+  ],
   "license": "proprietary",
   "require": {
     "php": "^7.1.3",
