@@ -114,6 +114,7 @@ abstract class BaseMQ
     protected function getConnectionSettings(): array
     {
         $connectionString = getenv('RABBITMQ_URL');
+
         $settings = explode('@', $connectionString);
         [$user, $password] = explode(':', $settings[0]);
         [$host, $port] = explode(':', $settings[1]);
@@ -135,10 +136,12 @@ abstract class BaseMQ
         $this->close();
     }
 
-    public function close(): void
+    public function close(): bool
     {
         $this->channel->close();
         $this->connection->close();
+
+        return true;
     }
 
     public function createTask(string $body): void
