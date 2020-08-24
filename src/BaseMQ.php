@@ -115,7 +115,7 @@ abstract class BaseMQ
     {
         $connectionString = getenv('RABBITMQ_URL');
         if (!$connectionString) {
-            $connectionString = $_SERVER('RABBITMQ_URL');
+            $connectionString = $_SERVER['RABBITMQ_URL'];
         }
 
         $settings = explode('@', $connectionString);
