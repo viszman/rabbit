@@ -114,6 +114,9 @@ abstract class BaseMQ
     protected function getConnectionSettings(): array
     {
         $connectionString = getenv('RABBITMQ_URL');
+        if (!$connectionString) {
+            $connectionString = $_SERVER('RABBITMQ_URL');
+        }
 
         $settings = explode('@', $connectionString);
         [$user, $password] = explode(':', $settings[0]);
