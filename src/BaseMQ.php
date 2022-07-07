@@ -50,6 +50,22 @@ abstract class BaseMQ
         $this->setupConnection();
     }
 
+    /**
+     * @return string
+     */
+    public function getRetryQueueName(): string
+    {
+        return $this->retryQueueName;
+    }
+
+    /**
+     * @return string
+     */
+    public function getQueueName(): string
+    {
+        return $this->queueName;
+    }
+
     protected function setupConnection(): void
     {
         $settings = $this->getConnectionSettings();
